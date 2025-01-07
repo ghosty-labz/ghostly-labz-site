@@ -6,6 +6,6 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://ghostylabz.com",
+  site: "https://www.ghostylabz.com",
   integrations: [tailwind(), mdx(), sitemap(), icon()],
 });
