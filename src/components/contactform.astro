@@ -2,11 +2,7 @@
 import Button from "./ui/button.astro";
 ---
 
-<!-- To make this contact form work, create your free access key from https://web3forms.com/
-     Then you will get all form submissions in your email inbox. -->
 <form action="" method="POST" id="form" class="needs-validation" novalidate>
-  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-  <!-- Create your free access key from https://web3forms.com/ -->
   <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
   <div class="mb-5">
     <input
@@ -76,7 +72,18 @@ import Button from "./ui/button.astro";
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+    // console.log(json);
+
+    fetch("https://ghosty-labz-api.garysarahvarner.workers.dev/contacts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    });
     form.reset();
-    console.log("sup!");
   });
 </script>
