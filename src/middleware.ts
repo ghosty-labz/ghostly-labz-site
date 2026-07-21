@@ -1,7 +1,9 @@
-export function onRequest(context, next) {
+import type { MiddlewareHandler } from "astro";
+
+export const onRequest: MiddlewareHandler = (_context, next) => {
   // intercept response data from a request
   //   console.log(context);
   // optionally, transform the response
   // return a Response directly, or the result of calling `next()`
   return next();
-}
+};

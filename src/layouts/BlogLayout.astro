@@ -3,6 +3,16 @@ import Container from "@components/container.astro";
 import { getFormattedDate } from "@utils/all";
 import Layout from "./Layout.astro";
 
+interface Props {
+  frontmatter: {
+    title: string;
+    category: string;
+    author: string;
+    publishDate: string;
+    tags: string[];
+  };
+}
+
 const { frontmatter } = Astro.props;
 ---
 
